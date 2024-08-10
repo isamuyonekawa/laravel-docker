@@ -20,4 +20,6 @@ yarn-error.log
 /.vscode
 
 /docker/mysql/*
+!/docker/mysql/.gitkeep
 /docker/nginx/logs/*
+!/docker/nginx/logs/.gitkeep
