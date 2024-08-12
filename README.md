@@ -76,3 +76,12 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## 参考
 
 https://qiita.com/hitotch/items/2e816bc1423d00562dc2
+
+## プロジェクト全体の所有権を現在のユーザーに変更
+1. ```CURRENT_USER=$(whoami)```  
+2. ```cd /path/to/your/laravel/project```  
+3. ```sudo chown -R $CURRENT_USER:$CURRENT_USER ./```  
+
+## 日本語langフォルダがない場合最初に実行する
+1. ```composer require --dev laravel-lang/lang```  
+2. ```php artisan lang:update```  
