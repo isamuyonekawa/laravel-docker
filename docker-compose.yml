@@ -21,8 +21,8 @@ services:
       - 5173:5173
     volumes:
       - ./:/src
-      - /src/node_modules
-      - /src/vendor
+      - ./node_modules:/src/node_modules
+      - ./node_modules:/src/vendor
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
 
   l11dev-mysql:
