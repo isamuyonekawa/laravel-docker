@@ -8,4 +8,4 @@ bootstrap/app.php
 redirect()
 
 
-- 初期設定でカラのNULLになる
+- ミドルウェアの初期設定によりカラのリクエストはNULLになる

@@ -23,9 +23,13 @@
             <input type="text" name="name" id="name" value="{{ old('name') }}">
         </div>
         <div>
+            <label for="nickname">Nickname</label>
+            <input type="text" name="nickname" id="nickname" value="{{ old('nickname') }}">
+        </div>
+        {{-- <div>
             <label for="email">Email</label>
             <input type="email" name="email" id="email" value="{{ old('email') }}">
-        </div>
+        </div> --}}
         <button type="submit">Submit</button>
     </form>
 </body>
