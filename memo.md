@@ -36,9 +36,3 @@ return redirect()->route('route.name');
 ## ミドルウェアの初期設定により空のリクエストはNULLになる
 
 Laravelのミドルウェアの初期設定により、空のリクエストパラメータは`null`として扱われます。これを考慮して、リクエストパラメータを処理する必要があります。
-
-```php
-$parameter = $request->input('parameter', 'default_value');
-```
-
-このように、デフォルト値を設定することで、空のリクエストパラメータが`null`になるのを防ぐことができます。
