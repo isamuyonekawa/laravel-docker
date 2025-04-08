@@ -44,4 +44,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    protected static function booted()
+    {
+        static::deleting(function ($user) {
+            dump('deleting');
+
+            return false;
+        });
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
