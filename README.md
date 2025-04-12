@@ -73,6 +73,11 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ```docker compose exec l11dev-app bash```
 
+php artisan view:clear
+php artisan cache:clear
+全部消して再度入れる
+php artisan migrate:fresh --seed
+
 ## 参考
 
 https://qiita.com/hitotch/items/2e816bc1423d00562dc2
