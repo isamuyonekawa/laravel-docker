@@ -6,6 +6,8 @@ use App\Repositories\UserRepositoryInterface;
 use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Gate;
+use App\Models\User;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Model::shouldBeStrict(! $this->app->isProduction());
+        Model::shouldBeStrict($this->app->environment('local'));
+
+        Gate::define('only-admin', function (User $user) {
+            return $user->email === 'me@exsample.com';
+        });
     }
 }

@@ -7,7 +7,11 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/ts/app.ts',
+                'resources/ts/app.js',
                 'resources/ts/pages/hello.ts', // 追加するファイル
+                'resources/js/dashboard.js',
+                'resources/css/dashboard.css',
+                'resources/css/dashboard.rtl.css'
             ],
             refresh: true,
         }),
