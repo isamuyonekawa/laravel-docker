@@ -6,9 +6,9 @@
     @vite(['resources/css/app.css', 'resources/ts/app.ts'])
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header class="bg-primary text-white p-3 w-100 d-flex align-items-center justify-content-between fixed-top">
+    <header class="bg-primary text-white p-2 w-100 d-flex align-items-center justify-content-between fixed-top">
+        <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">☰</button>
         <h1 class="m-0">My Application</h1>
-        <button class="btn btn-light d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">☰</button>
     </header>
     <div class="d-flex flex-grow-1" style="margin-top: 70px;">
         <aside class="bg-light p-3 border-end collapse d-lg-block" id="sidebar" style="width: 250px;">

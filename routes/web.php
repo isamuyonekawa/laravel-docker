@@ -13,6 +13,7 @@ use Illuminate\Auth\Events\Login;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use App\Models\DownloadHistory;
 
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -35,8 +36,9 @@ Route::get('member', function () {
     }
 
     $user = Auth::user();
+    $downloadHistories = $user->downloadHistories; // ユーザーのダウンロード履歴を取得
 
-    return view('member', compact('user'));
+    return view('member', compact('user', 'downloadHistories'));
 })->middleware('auth')->name('member');
 
 
@@ -56,7 +58,18 @@ Route::get('member', function () {
 Route::get('/addjob/{id}', function ($id) {
     $user = User::find($id);
 
-    JobTest::dispatch($user);
+    $downloadHistory = new DownloadHistory();
+    $downloadHistory->user_id = $user->id;
+    $downloadHistory->type = 'user_list';
+    $downloadHistory->status = 'pending';
+    $downloadHistory->search_conditions = json_encode([
+        'name' => 'test',
+        'age' => 20,
+    ]);
+    $downloadHistory->s3_file_path = null; // S3ファイルパスは後で設定する
+    $downloadHistory->save();
+
+    JobTest::dispatch($downloadHistory);
 
     return view('welcome', [
         'user' => $user,
